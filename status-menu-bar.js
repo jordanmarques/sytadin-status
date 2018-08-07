@@ -7,15 +7,12 @@ const DOMParser = require('xmldom').DOMParser;
 var mb = menubar()
 
 mb.on('ready', () => {
-  console.log('app is ready')
 
-})
-
-mb.on('show', () => {
-	fetch('http://www.sytadin.fr')
-		.then(toString)
-    	.then(extractTraficJam)
-    	.then(displayJam)
+	callAsyncTraficJamFetch()
+	setInterval(() => {
+		callAsyncTraficJamFetch()
+	}, 60000)
+	
 })
 
 const extractTraficJam = (body) => {
@@ -26,15 +23,21 @@ const extractTraficJam = (body) => {
 
 	jam = jam.replace(" km", "")
 
-	return new Promise(resolve => {
-		resolve(jam)
-	})
+	return new Promise(resolve => resolve(jam))
 }
 
 const toString = (res) => {
 	return res.text()
 }
 
-const displayJam = (jam) => {
+const displayTraficJam = (jam) => {
+	mb.tray.setTitle(jam + " Km")
 	console.log(jam)
+}
+
+const callAsyncTraficJamFetch = () => {
+	fetch('http://www.sytadin.fr')
+		.then(toString)
+    	.then(extractTraficJam)
+    	.then(displayTraficJam)
 }
