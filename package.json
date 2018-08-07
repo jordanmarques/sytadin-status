@@ -1,0 +1,19 @@
+{
+  "name": "sytadin-status",
+  "version": "1.0.0",
+  "description": "",
+  "main": "status-menu-bar.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-packager . Example --platform=darwin --arch=x64 --version=0.36.0 --icon=Icon.icns"
+  },
+  "author": "jmarques",
+  "license": "ISC",
+  "dependencies": {
+    "electron-fetch": "^1.2.1",
+    "menubar": "^5.2.3",
+    "path": "^0.12.7",
+    "xmldom": "^0.1.27"
+  }
+}
