@@ -6,12 +6,13 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron-packager . Example --platform=darwin --arch=x64 --version=0.36.0 --icon=Icon.icns"
+    "build": "electron-packager . Sytadin-Status --platform=darwin --arch=x64 --electron-version=0.36.0"
   },
   "author": "jmarques",
   "license": "ISC",
   "dependencies": {
     "electron-fetch": "^1.2.1",
+    "electron-packager": "^12.1.0",
     "menubar": "^5.2.3",
     "path": "^0.12.7",
     "xmldom": "^0.1.27"
