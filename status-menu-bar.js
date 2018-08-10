@@ -7,7 +7,6 @@ const DOMParser = require('xmldom').DOMParser;
 var mb = menubar()
 
 mb.on('ready', () => {
-
 	callAsyncTraficJamFetch()
 	setInterval(() => {
 		callAsyncTraficJamFetch()
@@ -32,7 +31,6 @@ const toString = (res) => {
 
 const displayTraficJam = (jam) => {
 	mb.tray.setTitle(jam + " Km")
-	console.log(jam)
 }
 
 const callAsyncTraficJamFetch = () => {
