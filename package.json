@@ -7,12 +7,14 @@
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "electron-packager . Sytadin-Status --platform=darwin --arch=x64 --electron-version=0.36.0 --overwrite",
-    "debug-build": "echo 'TYPE RUN TO START AND EXIT TO END' && lldb Sytadin-Status-darwin-x64/Sytadin-Status.app run"
+    "debug-build": "echo 'TYPE RUN TO START AND EXIT TO END' && lldb Sytadin-Status-darwin-x64/Sytadin-Status.app"
   },
   "author": "jmarques",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "electron-fetch": "^1.2.1",
+    "electron-log": "^2.2.16",
     "electron-packager": "^12.1.0",
     "menubar": "^5.2.3",
     "path": "^0.12.7",
