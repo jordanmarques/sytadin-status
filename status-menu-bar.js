@@ -19,14 +19,18 @@ mb.on('ready', () => {
 
 const fetchTraficJam = () => {
 	log.info('Start fetch');
-
-	http.get('http://www.sytadin.fr', (res) => {
-		res.setEncoding('utf8');
-  		let rawData = '';
-		res.on('data', (chunk) => {rawData += chunk});
-		res.on('end', () => extractTraficJam(rawData))
+	var request = http.get('http://www.sytadin.fr', catchResponse)
+	request.on('error', (error) => {
+		log.error(error)
+		mb.tray.setTitle("Error")
 	})
-	
+}
+
+const catchResponse = (res) => {
+		let rawData = '';
+		res.setEncoding('utf8')
+		res.on('data', (chunk) => {rawData += chunk})
+		res.on('end', () => extractTraficJam(rawData))
 }
 
 const extractTraficJam = (body) => {
